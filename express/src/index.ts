@@ -1,0 +1,20 @@
+import express = require('express');
+import {Request, Response} from 'express';
+import * as bodyParser from 'body-parser';
+import {subscriberRouter} from './routers/subscriber.router';
+import cors from 'cors';
+
+const app: express.Application = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
+
+app.use('/', subscriberRouter);
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World!');
+});
+
+app.listen(8081, () => {
+  console.log('Example app listening on port 8081!');
+});
