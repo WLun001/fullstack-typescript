@@ -1,6 +1,12 @@
 import * as Sequelize from 'sequelize';
 import {sequelize} from '../instances/sequelize';
 
+
+export interface ApiResponse {
+  apiVersion: number;
+  subscriber?: SubscriberViewModel | unknown;
+  subscribers?: SubscriberViewModel[];
+}
 export interface SubscriberAddModel {
   subscriberId?: number;
   name: string;
@@ -19,6 +25,8 @@ export interface SubscriberViewModel {
   subscriberId: number;
   name: string;
   email: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export const Subscriber = sequelize.define<SubscriberModel, SubscriberAddModel>('subscriber', {

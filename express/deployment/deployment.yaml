@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - name: test-api
-          image: grc.io/practise-project-254301/test-api:latest
+          image: gcr.io/practise-project-254301/test-api:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
